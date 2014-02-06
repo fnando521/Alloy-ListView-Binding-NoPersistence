@@ -1,0 +1,28 @@
+<Alloy>
+	<TabGroup id="homeTab">
+		<Tab title="model">
+			<Window>
+				<Label class="header" backgroundColor="{appState.color}">Model</Label>
+				<Label id="counter" text="{appState.counter}" color="{appState.color}" />
+			</Window>
+		</Tab>
+		<Tab title="collection">
+			<Window>
+				<Label class="header" backgroundColor="{appState.color}">Collection</Label>
+				<ListView id="listView" defaultItemTemplate="default">
+					<Templates>
+		                <ItemTemplate name="default">
+		                	<Label bindId="title" class="itemHeading" />
+		                </ItemTemplate>
+					</Templates>
+					 <ListSection id="section" dataCollection="heroes" >
+					 	<ListItem title:text="{name}" ></ListItem>
+		            </ListSection>
+				</ListView>
+			</Window>
+		</Tab>
+	</TabGroup>
+</Alloy>
+
+
+

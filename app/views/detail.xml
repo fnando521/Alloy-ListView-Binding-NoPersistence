@@ -1,0 +1,6 @@
+<Alloy>
+	<Window id="detailWin" backgroundColor="white">
+		<Button id="btnBack" title="Back" top="35"></Button>
+		<Label id="lblInfo" top="85"></Label>
+	</Window>
+</Alloy>
