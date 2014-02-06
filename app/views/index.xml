@@ -11,18 +11,16 @@
 				<Label class="header" backgroundColor="{appState.color}">Collection</Label>
 				<ListView id="listView" defaultItemTemplate="default">
 					<Templates>
-		                <ItemTemplate name="default">
-		                	<Label bindId="title" class="itemHeading" />
-		                </ItemTemplate>
+						<ItemTemplate name="default">
+							<Label bindId="title" class="itemHeading" />
+						</ItemTemplate>
 					</Templates>
-					 <ListSection id="section" dataCollection="heroes" >
-					 	<ListItem title:text="{name}" ></ListItem>
-		            </ListSection>
+					<ListSection id="section" dataCollection="heroes" >
+						<ListItem title:text="{name}" ></ListItem>
+					</ListSection>
 				</ListView>
 			</Window>
 		</Tab>
 	</TabGroup>
 </Alloy>
-
-
 
