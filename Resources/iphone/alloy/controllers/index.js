@@ -152,7 +152,7 @@ function Controller() {
     _.extend($, $.__views);
     var appState = Alloy.Models.appState;
     var heroes = Alloy.Collections.heroes;
-    var numberListItems = 5;
+    var numberListItems = 15;
     $.listView.addEventListener("itemclick", function(e) {
         Ti.API.info(e.section.getItemAt(e.itemIndex));
         var model = heroes.at(e.itemIndex);
@@ -166,6 +166,10 @@ function Controller() {
         Ti.API.info("load more");
         numberListItems += 10;
         heroes.trigger("change");
+        $.listView.setMarker({
+            sectionIndex: 0,
+            itemIndex: numberListItems - 1
+        });
     });
     $.counter.addEventListener("click", function() {
         appState.set({

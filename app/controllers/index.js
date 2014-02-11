@@ -1,6 +1,6 @@
 var appState = Alloy.Models.appState;
 var heroes = Alloy.Collections.heroes;
-var numberListItems = 5;
+var numberListItems = 15;
 
 
 function generateRandomColor() {
@@ -16,6 +16,7 @@ function generateRandomColor() {
 
 function filterFunction(collection) {
 
+	$.listView.setMarker({ sectionIndex:0, itemIndex: (numberListItems - 1) });
 	//var items = _.first(Alloy.Collections.heroes, 5);
 	//Ti.API.info(items.length);
 	
@@ -41,13 +42,15 @@ $.listView.addEventListener('itemclick', function(e) {
 });
 
 // Set the initial item threshold
-$.listView.setMarker({ sectionIndex:0, itemIndex: (numberListItems - 1) });
+
 
 $.listView.addEventListener('marker', function(e){
 	Ti.API.info('load more');
     numberListItems = numberListItems + 10;
     //var data = [];
     heroes.trigger('change');
+    
+    $.listView.setMarker({ sectionIndex:0, itemIndex: (numberListItems - 1) });
     /*for (var k = i; k < max; k++) {
         data.push({
             properties : {
