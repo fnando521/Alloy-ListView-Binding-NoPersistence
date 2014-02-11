@@ -24,7 +24,8 @@ function Controller() {
         return "#" + c;
     }
     function filterFunction(collection) {
-        $.listView.setMarker({
+        Ti.API.info("in Filter");
+        setMarker && $.listView.setMarker({
             sectionIndex: 0,
             itemIndex: numberListItems - 1
         });
@@ -153,6 +154,7 @@ function Controller() {
     var appState = Alloy.Models.appState;
     var heroes = Alloy.Collections.heroes;
     var numberListItems = 15;
+    var setMarker = true;
     $.listView.addEventListener("itemclick", function(e) {
         Ti.API.info(e.section.getItemAt(e.itemIndex));
         var model = heroes.at(e.itemIndex);
@@ -165,11 +167,16 @@ function Controller() {
     $.listView.addEventListener("marker", function() {
         Ti.API.info("load more");
         numberListItems += 10;
-        heroes.trigger("change");
-        $.listView.setMarker({
-            sectionIndex: 0,
-            itemIndex: numberListItems - 1
+        var data = [];
+        for (var x = 0; 10 > x; x++) data.push({
+            template: "default",
+            title: {
+                text: "TEST"
+            }
         });
+        $.section.appendItems(data);
+        Alloy.Collections.heroes.trigger("change");
+        setMarker = false;
     });
     $.counter.addEventListener("click", function() {
         appState.set({

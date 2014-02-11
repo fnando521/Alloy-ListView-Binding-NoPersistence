@@ -1,6 +1,8 @@
 var appState = Alloy.Models.appState;
 var heroes = Alloy.Collections.heroes;
 var numberListItems = 15;
+var i = 15;
+var setMarker = true;
 
 
 function generateRandomColor() {
@@ -15,12 +17,18 @@ function generateRandomColor() {
 }
 
 function filterFunction(collection) {
+	Ti.API.info('in Filter');
 
-	$.listView.setMarker({ sectionIndex:0, itemIndex: (numberListItems - 1) });
-	//var items = _.first(Alloy.Collections.heroes, 5);
-	//Ti.API.info(items.length);
+	if(setMarker) {
+		$.listView.setMarker({ sectionIndex:0, itemIndex: (numberListItems - 1) });
+		
+		//var items = _.first(Alloy.Collections.heroes, 5);
+		//Ti.API.info(items.length);
 	
-	//return collection.where({ name: 'Ironman' });
+		//return collection.where({ name: 'Ironman' });
+	} 
+
+	
 	return collection.first(numberListItems);
 
 }
@@ -46,21 +54,52 @@ $.listView.addEventListener('itemclick', function(e) {
 
 $.listView.addEventListener('marker', function(e){
 	Ti.API.info('load more');
+   
     numberListItems = numberListItems + 10;
-    //var data = [];
-    heroes.trigger('change');
+    var data = [];
+	//var max = i + 10;
     
-    $.listView.setMarker({ sectionIndex:0, itemIndex: (numberListItems - 1) });
+  	for(var x=0; x< 10; x++)
+  	{
+  		data.push({
+  			template: 'default',
+  			title: { text: 'TEST' }
+  		});
+  	}
+  	$.section.appendItems(data);
+    Alloy.Collections.heroes.trigger('change');
+    
+    setMarker = false;
+    
+    
+    /*heroes.each(function(_m) {
+    	Ti.API.info(JSON.stringify(_m));
+    });*/
+    
+	 //for (var k = i; k < max; k++) {
+      //  var model = heroes;
+       // Ti.API.info(JSON.stringify(model));
+        //i = i + 10;
+        //data.push({
+        //	model.
+        //})
+    //}
+
+    
     /*for (var k = i; k < max; k++) {
         data.push({
             properties : {
                 title: 'Row ' + (k + 1)
             }
-        });		
+        });
+   
     }
-    $.section.appendItems(data);
-    i = i + 25;
-    $.listView.setMarker({sectionIndex:0, itemIndex: (i - 1)});*/
+    $.section.appendItems(data);*/
+
+    
+    //heroes.trigger('change');
+    //$.listView.setMarker({ sectionIndex:0, itemIndex: (i - 1) });
+    //$.listView.setMarker({sectionIndex:0, itemIndex: (i - 1)});
 });
 
 // Update the model's counter and color, which in turn

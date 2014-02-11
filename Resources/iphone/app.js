@@ -68,64 +68,109 @@ Alloy.Collections.heroes.reset([ {
     name: "Cyclops",
     info: "The Greek Mythology"
 }, {
-    name: "Ironman",
+    name: "Ironman1",
     info: "More info here"
 }, {
-    name: "Superman",
+    name: "Mickey mouse",
     info: "I Love superman"
 }, {
-    name: "Thor",
+    name: "Aladdin",
     info: "Strength"
 }, {
-    name: "Captain America",
+    name: "Alice",
     info: "Team America!"
 }, {
-    name: "Hulk",
+    name: "Ariel",
     info: "is a fictional character, a superhero that appears in comic books published by Marvel Comics"
 }, {
-    name: "Green Lantern",
+    name: "Apollo",
     info: "Ryan Reynolds you rock!"
 }, {
-    name: "Punisher",
+    name: "Archimedes",
     info: "the Anti-hero"
 }, {
-    name: "Spiderman",
+    name: "Bambi",
     info: "AKA Peter Parker"
 }, {
-    name: "Wolverine",
+    name: "Bear",
     info: "Logan"
 }, {
-    name: "Cyclops",
+    name: "Bella",
     info: "The Greek Mythology"
 }, {
-    name: "Ironman",
+    name: "Big Al",
     info: "More info here"
 }, {
-    name: "Superman",
+    name: "Billy Bass",
     info: "I Love superman"
 }, {
-    name: "Thor",
+    name: "Big Mama",
     info: "Strength"
 }, {
-    name: "Captain America",
+    name: "Chief",
     info: "Team America!"
 }, {
-    name: "Hulk",
+    name: "Chip",
     info: "is a fictional character, a superhero that appears in comic books published by Marvel Comics"
 }, {
-    name: "Green Lantern",
+    name: "Cinderella",
     info: "Ryan Reynolds you rock!"
 }, {
-    name: "Punisher",
+    name: "Donald Duck",
     info: "the Anti-hero"
 }, {
-    name: "Spiderman",
+    name: "Dewey",
     info: "AKA Peter Parker"
 }, {
-    name: "Wolverine",
+    name: "Dale",
     info: "Logan"
 }, {
-    name: "Cyclops",
+    name: "Daffy",
+    info: "The Greek Mythology"
+}, {
+    name: "Eeyore",
+    info: "Ryan Reynolds you rock!"
+}, {
+    name: "Einstein",
+    info: "the Anti-hero"
+}, {
+    name: "El capitan",
+    info: "AKA Peter Parker"
+}, {
+    name: "Ella",
+    info: "Logan"
+}, {
+    name: "Elliott",
+    info: "The Greek Mythology"
+}, {
+    name: "Esmeralda",
+    info: "More info here"
+}, {
+    name: "Flora",
+    info: "I Love superman"
+}, {
+    name: "Flynn Rider",
+    info: "Strength"
+}, {
+    name: "Flower",
+    info: "Team America!"
+}, {
+    name: "Flounder",
+    info: "is a fictional character, a superhero that appears in comic books published by Marvel Comics"
+}, {
+    name: "Footman",
+    info: "Ryan Reynolds you rock!"
+}, {
+    name: "Fran",
+    info: "the Anti-hero"
+}, {
+    name: "Francis",
+    info: "AKA Peter Parker"
+}, {
+    name: "Frank",
+    info: "Logan"
+}, {
+    name: "Franny",
     info: "The Greek Mythology"
 } ]);
 
