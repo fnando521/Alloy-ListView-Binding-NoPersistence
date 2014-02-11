@@ -2,7 +2,7 @@ function Controller() {
     function __alloyId18(e) {
         if (e && e.fromAdapter) return;
         var opts = __alloyId18.opts || {};
-        var models = __alloyId17.models;
+        var models = filterFunction(__alloyId17);
         var len = models.length;
         var __alloyId13 = [];
         for (var i = 0; len > i; i++) {
@@ -22,6 +22,13 @@ function Controller() {
         c = c.toString(16);
         while (6 > c.length) c = "0" + c;
         return "#" + c;
+    }
+    function filterFunction(collection) {
+        $.listView.setMarker({
+            sectionIndex: 0,
+            itemIndex: numberListItems - 1
+        });
+        return collection.first(numberListItems);
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "index";
@@ -145,6 +152,7 @@ function Controller() {
     _.extend($, $.__views);
     var appState = Alloy.Models.appState;
     var heroes = Alloy.Collections.heroes;
+    var numberListItems = 5;
     $.listView.addEventListener("itemclick", function(e) {
         Ti.API.info(e.section.getItemAt(e.itemIndex));
         var model = heroes.at(e.itemIndex);
@@ -153,6 +161,11 @@ function Controller() {
             data: model
         });
         detailWin.getView().open();
+    });
+    $.listView.addEventListener("marker", function() {
+        Ti.API.info("load more");
+        numberListItems += 10;
+        heroes.trigger("change");
     });
     $.counter.addEventListener("click", function() {
         appState.set({

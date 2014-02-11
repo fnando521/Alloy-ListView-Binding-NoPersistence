@@ -15,7 +15,7 @@
 							<Label bindId="title" class="itemHeading" />
 						</ItemTemplate>
 					</Templates>
-					<ListSection id="section" dataCollection="heroes" >
+					<ListSection id="section" dataCollection="heroes" dataFilter="filterFunction" >
 						<ListItem title:text="{name}" ></ListItem>
 					</ListSection>
 				</ListView>

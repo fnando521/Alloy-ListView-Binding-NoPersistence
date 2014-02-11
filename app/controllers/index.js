@@ -1,5 +1,7 @@
 var appState = Alloy.Models.appState;
 var heroes = Alloy.Collections.heroes;
+var numberListItems = 5;
+
 
 function generateRandomColor() {
 	var c =(Math.floor(Math.random()*255))*256*256 +
@@ -10,6 +12,16 @@ function generateRandomColor() {
 		c = '0' + c;
 	}
 	return '#' + c;
+}
+
+function filterFunction(collection) {
+
+	//var items = _.first(Alloy.Collections.heroes, 5);
+	//Ti.API.info(items.length);
+	
+	//return collection.where({ name: 'Ironman' });
+	return collection.first(numberListItems);
+
 }
 
 $.listView.addEventListener('itemclick', function(e) {
@@ -26,6 +38,26 @@ $.listView.addEventListener('itemclick', function(e) {
 		data: model
 	});
 	detailWin.getView().open();
+});
+
+// Set the initial item threshold
+$.listView.setMarker({ sectionIndex:0, itemIndex: (numberListItems - 1) });
+
+$.listView.addEventListener('marker', function(e){
+	Ti.API.info('load more');
+    numberListItems = numberListItems + 10;
+    //var data = [];
+    heroes.trigger('change');
+    /*for (var k = i; k < max; k++) {
+        data.push({
+            properties : {
+                title: 'Row ' + (k + 1)
+            }
+        });		
+    }
+    $.section.appendItems(data);
+    i = i + 25;
+    $.listView.setMarker({sectionIndex:0, itemIndex: (i - 1)});*/
 });
 
 // Update the model's counter and color, which in turn
